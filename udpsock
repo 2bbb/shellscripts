@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ $# = 2 ];
+then
+	nc -4u $1 $2
+elif [ $# = 1 ];
+then
+	nc -4u localhost $1
+else
+	echo 'invalid argument' 1>&2
+fi
+
+exit 0

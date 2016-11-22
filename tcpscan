@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $# = 1 ];
+then
+	echo "nc -z -v localhost $1"
+	nc -z -v localhost $1 2>/dev/null
+elif [ $# = 2 ];
+then
+	echo "nc -z -v localhost $1-$2"
+	nc -z -v localhost $1-$2 2>/dev/null | grep succeed
+elif [ $# = 3 ];
+then
+	echo "nc -z -v $1 $2-$3"
+	nc -z -v $1 $2-$3 2>/dev/null | grep succeed
+else
+	echo "invalid arguments."
+fi
+
+exit 0

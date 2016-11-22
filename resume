@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -C - -o $1 $2

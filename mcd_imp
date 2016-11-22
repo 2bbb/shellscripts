@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TARGET_DIR=`cat ~/.work_pathes | awk '$1 ~ /^'"${1}"'$/ {print $2}'`
+
+if [ -n "$TARGET_DIR" ]; then
+	echo "move to $TARGET_DIR"
+	cd $TARGET_DIR
+else
+	echo "shortcut '$1' not found"
+fi
+

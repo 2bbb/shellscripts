@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd $1
+FILES="*"
+for FILEPATH in $FILES;
+do
+	if [ -d $FILEPATH ];
+	then
+		cd $FILEPATH
+		git config --get remote.origin.url >/dev/null 2>&1
+		if [ $? -eq 0 ];
+		then
+			RESULT=`git config --get remote.origin.url`
+			if [ 'git@github.com:openframeworks/openFrameworks.git' != $RESULT ];
+			then
+				echo $RESULT
+				git clone $RESULT $2/$FILEPATH
+			fi
+		fi
+		cd ..
+	fi
+done

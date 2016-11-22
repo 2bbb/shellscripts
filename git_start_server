@@ -1,0 +1,2 @@
+#!/bin/sh
+git daemon --base-path=/Users/2bit/local_git_repos/ --reuseaddr --verbose --export-all --enable=receive-pack
